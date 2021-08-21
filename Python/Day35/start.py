@@ -3,12 +3,12 @@ import datetime
 import os
 from twilio.rest import Client
 
-API_KEY = "c40a0e063ca2a4a93d19cb6774fb4386"
-LATITUDE = 21.027763
-LONGITUDE = 105.834160
+API_KEY = "#####"
+LATITUDE = #####
+LONGITUDE = #####
 
-account_sid = "AC89d280f50923807b3a11f74da3a67997"
-auth_token = "570a619de9da526942e5adc2e5d9cb67"
+account_sid = "#####"
+auth_token = "#####"
 
 parameters = {
     "lat": LATITUDE,
@@ -52,8 +52,8 @@ if will_rain:
     message = client.messages \
         .create(
         body="It's going to rain today. Remember to bring an umbrella.☔",
-        from_='+18647540187',
-        to='+84916056525'
+        from_='+####',
+        to='+####'
     )
     print(message.status)
 
