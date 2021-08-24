@@ -1,53 +1,77 @@
 import requests
 from datetime import datetime
-import os
 
-APP_ID = os.environ["APP_ID"]
-API_KEY = os.environ["API_KEY"]
+USERNAME = "studentappbrewery"
+TOKEN = "hawief2j3842341h1u3h1h2oinfd"
+GRAPH_ID = "graph1"
 
-EXERCISE_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
-SHEETY_ENDPOINT = os.environ["SHEET_ENDPOINT"]
+pixela_endpoint = "https://pixe.la/v1/users"
 
-USERNAME = os.environ["USERNAME"]
-PASSWORD = os.environ["PASSWORD"]
+user_params = {
+    "token": TOKEN,
+    "username": USERNAME,
+    "agreeTermsOfService": "yes",
+    "notMinor": "yes",
+}
 
-GENDER = "female"
-WEIGHT_KG = 65
-HEIGHT_CM = 165
-AGE = 20
+# response = requests.post(url=pixela_endpoint, json=user_params)
+# print(response.text)
+
+# graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
+#
+# graph_config = {
+#     "id": "graph1",
+#     "name": "Cycling Graph",
+#     "unit": "Km",
+#     "type": "float",
+#     "color": "ajisai"
+# }
+#
+# headers = {
+#     "X-USER-TOKEN": TOKEN
+# }
+
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response.text)
+
+# graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+#
+# today = datetime(year=2021, month=8, day=20)
+#
+# graph_config = {
+#     "date": today.strftime("%Y%m%d"),
+#     "quantity": "1"
+# }
+#
+# headers = {
+#     "X-USER-TOKEN": TOKEN
+# }
+#
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response)
+
+# graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/20210822"
+#
+# today = datetime.now()
+#
+# graph_config = {
+#     "date": today.strftime("%Y%m%d"),
+#     "quantity": "1"
+# }
+#
+# headers = {
+#     "X-USER-TOKEN": TOKEN
+# }
+#
+# response = requests.put(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response)
+
+today = datetime.now()
+graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 
 headers = {
-    "x-app-id": APP_ID,
-    "x-app-key": API_KEY
+    "X-USER-TOKEN": TOKEN
 }
 
-exercise_text = input("Tell me which exercises you did: ")
-params = {
-    "query": exercise_text,
-    "gender": GENDER,
-    "weight_kg": WEIGHT_KG,
-    "height_cm": HEIGHT_CM,
-    "age": AGE
-}
-
-response = requests.post(url=EXERCISE_ENDPOINT, headers=headers, json=params)
-results = response.json()
-print(results)
-
-now = datetime.now()
-today = now.strftime("%d/%m/%Y")
-time = now.strftime("%H:%M:%S")
-
-data = requests.get(SHEETY_ENDPOINT)
-for exercise in results["exercises"]:
-    sheet_inputs = {
-        "workout": {
-            "date": today,
-            "time": time,
-            "exercise": exercise["name"].title(),
-            "duration": exercise["duration_min"],
-            "calories": exercise["nf_calories"]
-        }
-    }
-    sheet_response = requests.post(SHEETY_ENDPOINT, json=sheet_inputs, auth=(USERNAME, PASSWORD))
-    print(sheet_response.text)
+response = requests.delete(url=graph_endpoint, headers=headers)
+print(response)
