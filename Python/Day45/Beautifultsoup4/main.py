@@ -1,11 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 
+with open("website.html") as file:
+    contents = file.read()
+soup = BeautifulSoup(contents, )
+
 response = requests.get("https://news.ycombinator.com/news")
 
 yc_web_page = response.text
 
-soup = BeautifulSoup(yc_web_page, "html.parser")
+# soup = BeautifulSoup(yc_web_page, "html.parser")
 article = soup.find_all(name="a", class_="storylink")
 # print(first.text)
 article_texts = []
