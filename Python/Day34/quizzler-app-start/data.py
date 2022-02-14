@@ -1,10 +1,5 @@
 import requests
 
-# response = requests.get("https://opentdb.com/api.php?amount=10&type=boolean")
-# questions = response.json()
-#
-# question_data = questions["results"]
-
 parameters = {
     "amount": 10,
     "type": "boolean",
