@@ -4,7 +4,6 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-#TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar(). 
 def ceasar(direct, message, shift_amount):
   end_text = ""
   default_shift = shift_amount
@@ -21,5 +20,4 @@ def ceasar(direct, message, shift_amount):
     shift_amount = default_shift
   print(f"The {direct}d text is {end_text}")
   
-#TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
 ceasar(direct=direction,message=text,shift_amount=shift)
