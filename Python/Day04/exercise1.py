@@ -1,5 +1,3 @@
-#Write your code below this line 👇
-#Hint: Remember to import the random module first. 🎲
 import random
 
 test_seed = int(input("Create a seed number: "))
