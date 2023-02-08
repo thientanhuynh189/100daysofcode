@@ -9,3 +9,4 @@ my_function()
 #while loop
 while something_is_true:
   #do something repeatedly
+  1

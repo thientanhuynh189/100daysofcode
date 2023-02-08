@@ -128,5 +128,5 @@ while not at_goal():
     move()
   elif front_is_clear():
     move()
-  else
+  else:
     turn_left()
