@@ -1,6 +1,6 @@
 #Data Types
 #String
-# "Hello"[4]
+# "Hello"
 
 #Integer
 # 123 + 345

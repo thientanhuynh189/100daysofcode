@@ -1,4 +1,3 @@
-# Write your code below this line 👇
 print("Hello world!")
 print("Hello\nHolle")
 print("Hello" + " " + "Silsk")
