@@ -1,10 +1,5 @@
 # import smtplib
 #
-# # my_email = "appbrewery.student2021@gmail.com"
-# # password = "abcd123()"
-# my_email = "appbrewery.student@yahoo.com"
-# password = "tlyzlxmcnflevhns"
-#
 # with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
 #     connection.starttls()
 #     connection.login(user=my_email, password=password)
@@ -30,8 +25,8 @@ import datetime
 import smtplib
 import random
 
-MY_EMAIL = "appbrewery.student2021@gmail.com"
-MY_PASSWORD = "abcd123()"
+MY_EMAIL = ""
+MY_PASSWORD = ""
 
 now = datetime.datetime.now()
 current_weekday = now.weekday()
